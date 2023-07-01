@@ -1,20 +1,27 @@
 {
   "name": "ts-tqdm",
-  "version": "1.0.0",
+  "version": "0.8.1",
   "description": "A tqdm for node (Typescript).",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "devDependencies": {
     "@types/node": "^20.3.3",
     "typescript": "^5.1.6"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "tqdm",
     "typescript",
-    "ts-tqdm"
+    "ts-tqdm",
+    "progress bar"
   ],
+  "homepage": "https://github.com/delarco/ts-tqdm",
   "repository": {
     "type": "git",
     "url": "https://github.com/delarco/ts-tqdm.git"
