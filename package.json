@@ -1,0 +1,28 @@
+{
+  "name": "ts-tqdm",
+  "version": "1.0.0",
+  "description": "A tqdm for node (Typescript).",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@types/node": "^20.3.3",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tqdm",
+    "typescript",
+    "ts-tqdm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/delarco/ts-tqdm.git"
+  },
+  "author": {
+    "name": "Leandro Del Arco",
+    "email": "leandrodelarco@outlook.com",
+    "url": "https://github.com/delarco"
+  },
+  "license": "MIT"
+}
