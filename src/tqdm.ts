@@ -1,4 +1,7 @@
-export class _tqdmIterator implements Iterator<any> {
+type _tqdmInput = Array<any> | number;
+type _tqdmIteratorResult<T> = T extends Array<infer Item> ? Item : number;
+
+export class _tqdmIterator<T extends _tqdmInput> implements Iterator<any> {
 
     private index: number = 0;
     private done: boolean = false;
@@ -6,11 +9,11 @@ export class _tqdmIterator implements Iterator<any> {
     private progressBarSize: number = 45;
     private values: Array<any>;
 
-    constructor(init: Array<any> | number) {
+    constructor(init: T) {
 
         this.startTime = Date.now();
 
-        if (init instanceof Array) {
+        if (Array.isArray(init)) {
 
             this.values = init;
         }
@@ -24,7 +27,7 @@ export class _tqdmIterator implements Iterator<any> {
         }
     }
 
-    public next(): IteratorResult<boolean, any> {
+    public next(): IteratorResult<_tqdmIteratorResult<T>, undefined> {
 
         if (this.done) return { done: this.done, value: undefined, };
 
@@ -86,17 +89,17 @@ export class _tqdmIterator implements Iterator<any> {
     }
 }
 
-export class _tqdm {
+export class _tqdm<T extends _tqdmInput> {
 
-    constructor(private init: Array<any> | number) { }
+    constructor(private init: T) { }
 
-    [Symbol.iterator](): Iterator<any> {
+    [Symbol.iterator](): Iterator<_tqdmIteratorResult<T>, undefined> {
 
         return new _tqdmIterator(this.init);
     }
 }
 
-export function tqdm(init: Array<any> | number) {
+export function tqdm<T extends _tqdmInput>(init: T) {
 
     return new _tqdm(init);
 }
